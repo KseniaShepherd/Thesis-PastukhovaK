@@ -16,13 +16,14 @@
 
 Дождаться появления сообщения:
 
-![npm start](https://drive.google.com/uc?export=view&id=1zuibSSjAhKFtZirvmsu71DPNHjXB1eOK)
+![npm start](https://github.com/KseniaShepherd/Thesis-PastukhovaK/blob/master/screenshots/npm%20start.png?raw=true)
 
-4. Запустите контейнеры из файла docker-compose.yml командой в терминале:
+4. Запустите контейнеры из файла docker-compose.yml командой в терминале:
 >docker-compose up
 
 В Docker Desktop должен появится статус RUNNING для обеих баз данных:
 
+![docker](https://github.com/KseniaShepherd/Thesis-PastukhovaK/blob/master/screenshots/docker.png?raw=true)
 
 5.  Запускаем приложение расположеное в файле aqa-shop.jar командой в терминале:
 
