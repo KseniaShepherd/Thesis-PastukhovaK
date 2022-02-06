@@ -22,7 +22,6 @@ build/
 *.ipr
 out/
 gate-simulator/node_modules/**
-data/**
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
