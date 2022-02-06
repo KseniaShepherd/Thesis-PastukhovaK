@@ -25,7 +25,7 @@
 
 ![docker](https://github.com/KseniaShepherd/Thesis-PastukhovaK/blob/master/screenshots/docker.png?raw=true)
 
-5.  Запускаем приложение расположеное в файле aqa-shop.jar командой в терминале:
+5.  Запустите приложение расположеное в файле aqa-shop.jar командой в терминале:
 
 для MySQL:
 
@@ -37,7 +37,7 @@
 
 Дождаться сообщения в терминале, которое будет означать, что приложение успешно запущено:
 
-INFO 48863 --- [           main] ru.netology.shop.ShopApplication         : Started ShopApplication in 4.342 seconds (JVM running for 4.956)
+![started application](https://github.com/KseniaShepherd/Thesis-PastukhovaK/blob/master/screenshots/started%20application.png?raw=true)
 
 6. Запустите автотесты командой в терминале:
 
