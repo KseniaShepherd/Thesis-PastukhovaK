@@ -8,6 +8,7 @@ import ru.netology.data.DataHelper;
 import ru.netology.page.TourPurchasePage;
 import ru.netology.sql.SQLRequest;
 
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,16 +31,11 @@ public class TestsWithEmptyForm {
     public void shouldFailToPurchaseWithACardWithEmptyForm() {
         tourPurchasePage.buyTourWithACard(invalidCardNumbers.getEmptyCardNumber(), invalidMonth.getEmptyMonth(),
                 invalidYear.getEmptyYear(), invalidOwner.getEmptyOwner(), invalidCVC.getEmptyCvc());
-        String actualMessageBelowFieldCardNumber = $("#root > div > form > fieldset > div:nth-child(1) " +
-                "> span > span > span.input__sub").getText();
-        String actualMessageBelowFieldMonth = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
-        String actualMessageBelowFieldYear = $("#root > div > form > fieldset > div:nth-child(2) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
-        String actualMessageBelowFieldOwner = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(1) " +
-                "> span > span > span.input__sub").getText();
-        String actualMessageBelowFieldCVC = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
+        String actualMessageBelowFieldCardNumber =  $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
+        String actualMessageBelowFieldMonth = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
+        String actualMessageBelowFieldYear = $(byXpath("//span[text()='Год']/..//span[@class = 'input__sub']")).getText();
+        String actualMessageBelowFieldOwner = $(byXpath("//span[text()='Владелец']/..//span[@class = 'input__sub']")).getText();
+        String actualMessageBelowFieldCVC = $(byXpath("//span[text()='CVC/CVV']/..//span[@class = 'input__sub']")).getText();
 
         String expectedMessageBelowFieldCardNumber = "Поле обязательно для заполнения";
         String expectedMessageBelowFieldMonth = "Поле обязательно для заполнения";
@@ -62,16 +58,11 @@ public class TestsWithEmptyForm {
     public void shouldFailToPurchaseWithALoanWithEmptyForm() {
         tourPurchasePage.buyTourWithALoan(invalidCardNumbers.getEmptyCardNumber(), invalidMonth.getEmptyMonth(),
                 invalidYear.getEmptyYear(), invalidOwner.getEmptyOwner(), invalidCVC.getEmptyCvc());
-        String actualMessageBelowFieldCardNumber = $("#root > div > form > fieldset > div:nth-child(1) " +
-                "> span > span > span.input__sub").getText();
-        String actualMessageBelowFieldMonth = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
-        String actualMessageBelowFieldYear = $("#root > div > form > fieldset > div:nth-child(2) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
-        String actualMessageBelowFieldOwner = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(1) " +
-                "> span > span > span.input__sub").getText();
-        String actualMessageBelowFieldCVC = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
+        String actualMessageBelowFieldCardNumber =  $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
+        String actualMessageBelowFieldMonth = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
+        String actualMessageBelowFieldYear = $(byXpath("//span[text()='Год']/..//span[@class = 'input__sub']")).getText();
+        String actualMessageBelowFieldOwner = $(byXpath("//span[text()='Владелец']/..//span[@class = 'input__sub']")).getText();
+        String actualMessageBelowFieldCVC = $(byXpath("//span[text()='CVC/CVV']/..//span[@class = 'input__sub']")).getText();
 
         String expectedMessageBelowFieldCardNumber = "Поле обязательно для заполнения";
         String expectedMessageBelowFieldMonth = "Поле обязательно для заполнения";

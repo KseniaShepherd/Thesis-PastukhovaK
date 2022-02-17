@@ -8,6 +8,7 @@ import ru.netology.data.DataHelper;
 import ru.netology.page.TourPurchasePage;
 import ru.netology.sql.SQLRequest;
 
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -27,8 +28,7 @@ public class TestsWithInvalidCVC {
     public void shouldFailToPurchaseWithACardWithEmptyCVC() {
         tourPurchasePage.buyTourWithACard(DataHelper.getFirstCardNumber(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), invalidCVC.getEmptyCvc());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='CVC/CVV']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Поле обязательно для заполнения";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -40,8 +40,7 @@ public class TestsWithInvalidCVC {
     public void shouldFailToPurchaseWithALoanWithEmptyCVC() {
         tourPurchasePage.buyTourWithALoan(DataHelper.getFirstCardNumber(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), invalidCVC.getEmptyCvc());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='CVC/CVV']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Поле обязательно для заполнения";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -53,8 +52,7 @@ public class TestsWithInvalidCVC {
     public void shouldFailToPurchaseWithACardWithIncorrectFormCvc() {
         tourPurchasePage.buyTourWithACard(DataHelper.getFirstCardNumber(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), invalidCVC.getIncorrectFormCvc());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='CVC/CVV']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -66,8 +64,7 @@ public class TestsWithInvalidCVC {
     public void shouldFailToPurchaseWithALoanWithIncorrectFormCvc() {
         tourPurchasePage.buyTourWithALoan(DataHelper.getFirstCardNumber(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), invalidCVC.getIncorrectFormCvc());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='CVC/CVV']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -79,8 +76,7 @@ public class TestsWithInvalidCVC {
     public void shouldFailToPurchaseWithACardWithCvcWithText() {
         tourPurchasePage.buyTourWithACard(DataHelper.getFirstCardNumber(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), invalidCVC.getCvcWithText());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='CVC/CVV']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -92,8 +88,7 @@ public class TestsWithInvalidCVC {
     public void shouldFailToPurchaseWithALoanWithCvcWithText() {
         tourPurchasePage.buyTourWithALoan(DataHelper.getFirstCardNumber(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), invalidCVC.getCvcWithText());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2)" +
-                " > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='CVC/CVV']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();

@@ -8,6 +8,7 @@ import ru.netology.data.DataHelper;
 import ru.netology.page.TourPurchasePage;
 import ru.netology.sql.SQLRequest;
 
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -27,8 +28,7 @@ public class TestsWithInvalidMonth {
     public void shouldFailToPurchaseWithACardWithEmptyMonth() {
         tourPurchasePage.buyTourWithACard(DataHelper.getFirstCardNumber(), invalidMonth.getEmptyMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Поле обязательно для заполнения";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -40,8 +40,7 @@ public class TestsWithInvalidMonth {
     public void shouldFailToPurchaseWithALoanWithEmptyMonth() {
         tourPurchasePage.buyTourWithALoan(DataHelper.getFirstCardNumber(), invalidMonth.getEmptyMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Поле обязательно для заполнения";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -53,8 +52,7 @@ public class TestsWithInvalidMonth {
     public void shouldFailToPurchaseWithACardWithMonthMoreTwelfth() {
         tourPurchasePage.buyTourWithACard(DataHelper.getFirstCardNumber(), invalidMonth.getMonthMoreTwelfth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверно указан срок действия карты";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -66,8 +64,7 @@ public class TestsWithInvalidMonth {
     public void shouldFailToPurchaseWithALoanWithMonthMoreTwelfth() {
         tourPurchasePage.buyTourWithALoan(DataHelper.getFirstCardNumber(), invalidMonth.getMonthMoreTwelfth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверно указан срок действия карты";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -79,8 +76,7 @@ public class TestsWithInvalidMonth {
     public void shouldFailToPurchaseWithACardWithZeroMonth() {
         tourPurchasePage.buyTourWithACard(DataHelper.getFirstCardNumber(), invalidMonth.getZeroMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверно указан срок действия карты";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -92,8 +88,7 @@ public class TestsWithInvalidMonth {
     public void shouldFailToPurchaseWithALoanWithZeroMonth() {
         tourPurchasePage.buyTourWithALoan(DataHelper.getFirstCardNumber(), invalidMonth.getZeroMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверно указан срок действия карты";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -105,8 +100,7 @@ public class TestsWithInvalidMonth {
     public void shouldFailToPurchaseWithACardWithMonthWithText() {
         tourPurchasePage.buyTourWithACard(DataHelper.getFirstCardNumber(), invalidMonth.getMonthWithText(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -118,8 +112,7 @@ public class TestsWithInvalidMonth {
     public void shouldFailToPurchaseWithALoanWithMonthWithText() {
         tourPurchasePage.buyTourWithALoan(DataHelper.getFirstCardNumber(), invalidMonth.getMonthWithText(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(2) > span > " +
-                "span.input-group__input-case.input-group__input-case_invalid > span > span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Месяц']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();

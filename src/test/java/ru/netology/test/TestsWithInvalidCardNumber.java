@@ -11,6 +11,7 @@ import ru.netology.sql.SQLRequest;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,8 +32,7 @@ public class TestsWithInvalidCardNumber {
     public void shouldFailToPurchaseWithCardWithEmptyCardNumber() {
         tourPurchasePage.buyTourWithACard(invalidCardNumbers.getEmptyCardNumber(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(1) > span > " +
-                "span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Поле обязательно для заполнения";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -44,8 +44,7 @@ public class TestsWithInvalidCardNumber {
     public void shouldFailToPurchaseWithALoanWithEmptyCardNumber() {
         tourPurchasePage.buyTourWithALoan(invalidCardNumbers.getEmptyCardNumber(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(1) > span > " +
-                "span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Поле обязательно для заполнения";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -102,8 +101,7 @@ public class TestsWithInvalidCardNumber {
     public void shouldFailToPurchaseWithACardWithNumberWithOneDigit() {
         tourPurchasePage.buyTourWithACard(invalidCardNumbers.getCardNumberWithOneDigit(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(1) > span > " +
-                "span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -115,8 +113,7 @@ public class TestsWithInvalidCardNumber {
     public void shouldFailToPurchaseWithALoanWithNumberWithOneDigit() {
         tourPurchasePage.buyTourWithALoan(invalidCardNumbers.getCardNumberWithOneDigit(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(1) > span > " +
-                "span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -128,8 +125,7 @@ public class TestsWithInvalidCardNumber {
     public void shouldFailToPurchaseWithACardWithNumberWithFifteenDigits() {
         tourPurchasePage.buyTourWithACard(invalidCardNumbers.getCardNumberWithFifteenDigits(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(1) > span > " +
-                "span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -141,8 +137,7 @@ public class TestsWithInvalidCardNumber {
     public void shouldFailToPurchaseWithALoanWithNumberWithFifteenDigits() {
         tourPurchasePage.buyTourWithALoan(invalidCardNumbers.getCardNumberWithFifteenDigits(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(1) > span > " +
-                "span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -155,8 +150,7 @@ public class TestsWithInvalidCardNumber {
     public void shouldFailToPurchaseWithACardWithNumberWithTextAndChars() {
         tourPurchasePage.buyTourWithACard(invalidCardNumbers.getCardNumberWithTextAndChars(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(1) > span > " +
-                "span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
@@ -168,8 +162,7 @@ public class TestsWithInvalidCardNumber {
     public void shouldFailToPurchaseWithALoanWithNumberWithTextAndChars() {
         tourPurchasePage.buyTourWithALoan(invalidCardNumbers.getCardNumberWithTextAndChars(), validCardDetails.getValidMonth(),
                 validCardDetails.getValidYear(), validCardDetails.getValidOwner(), validCardDetails.getValidCvcOrCvv());
-        String actualResult = $("#root > div > form > fieldset > div:nth-child(1) > span > " +
-                "span > span.input__sub").getText();
+        String actualResult = $(byXpath("//span[text()='Номер карты']/..//span[@class = 'input__sub']")).getText();
         String expectedResult = "Неверный формат";
         assertEquals(expectedResult, actualResult);
         val expectedStatus = DataHelper.getEmptyCardStatus();
